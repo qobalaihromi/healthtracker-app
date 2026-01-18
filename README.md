@@ -36,24 +36,23 @@ A comprehensive health tracking application combining nutrition, fitness, sleep 
 ### Phase 1: Foundation (MVP) 🏗️
 -   [x] Project Initialization (Expo + TypeScript).
 -   [ ] **Architecture**: Setup Monorepo-like structure (optional) or sleek folder structure.
--   [ ] **UI Setup**: Configure Tamagui provider & Theme.
--   [ ] **DB Setup**: Initialize Drizzle ORM with SQLite.
--   [ ] **Feature**: Basic Pedometer (Step Counter).
+-   [x] **UI Setup**: Configure Tamagui provider & Theme.
+-   [x] **DB Setup**: Initialize Drizzle ORM with SQLite.
+-   [x] **Feature**: Basic Pedometer (Step Counter).
 
 ### Phase 2: Nutrition Tracker 🍎
--   [ ] **Database**: Design `FoodLogs` and `Products` schema.
--   [ ] **API**: Integrate OpenFoodFacts for search.
--   [ ] **API**: Integrate OpenFoodFacts for search.
--   [ ] **UI**: Daily Calorie/Sugar/Salt dashboard.
--   [ ] **Fasting**: Intermittent Fasting Timer & History (16:8, 20:4).
+-   [x] **Database**: Design `FoodLogs` and `Products` schema.
+-   [x] **API**: Integrate OpenFoodFacts for search.
+-   [x] **UI**: Daily Calorie/Sugar/Salt dashboard.
+-   [x] **Fasting**: Intermittent Fasting Timer & History (16:8, 20:4).
 
 ### Phase 3: Maps & Activity 🏃
--   [ ] **Map**: Setup `react-native-maps` with OSM tiles.
--   [ ] **Tracking**: Implement `expo-location` background service.
+-   [x] **Map**: Setup `react-native-maps` with OSM tiles.
+-   [x] **Tracking**: Implement `expo-location` background service.
 -   [ ] **Storage**: Save route coordinates (GeoJSON) to SQLite.
 
 ### Phase 4: Wearables & Sync ⌚
--   [ ] **BLE**: Scan & Connect to standard Heart Rate monitors.
+-   [x] **BLE**: Scan & Connect to standard Heart Rate monitors.
 -   [ ] **Backup**: Export SQLite DB to JSON/File and upload to Google Drive.
 
 ---
