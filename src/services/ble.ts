@@ -4,12 +4,23 @@ import { PermissionsAndroid, Platform } from 'react-native';
 const HEART_RATE_SERVICE_UUID = '180D';
 const HEART_RATE_CHARACTERISTIC_UUID = '2A37';
 
+// Export a singleton instance but ensure BleManager is lazy-loaded if possible
+// However, seeing as this is a class instance, it's safer to make the manager optional or init in constructor
+// Since we want to export an instance, let's keep the export but safely handle the manager.
+// Better approach: Make the global export an object that has the methods, or modify the class.
+// A safe fix for the crash is to not run `new BleManager()` in the field initializer if that runs on import.
+// Actually, `new HeartRateService()` runs on import. `this.manager = new BleManager()` runs then.
+// Let's change the pattern to Lazy Singleton.
+
 class HeartRateService {
-    manager: BleManager;
+    private manager: BleManager | null = null;
     device: Device | null = null;
 
-    constructor() {
-        this.manager = new BleManager();
+    private getManager(): BleManager {
+        if (!this.manager) {
+            this.manager = new BleManager();
+        }
+        return this.manager;
     }
 
     async requestPermissions() {
@@ -25,7 +36,7 @@ class HeartRateService {
     }
 
     scanAndConnect(onHeartRateUpdate: (hr: number) => void) {
-        this.manager.startDeviceScan(null, null, (error, device) => {
+        this.getManager().startDeviceScan(null, null, (error, device) => {
             if (error) {
                 console.log(error);
                 return;
@@ -33,7 +44,7 @@ class HeartRateService {
 
             // Check if device advertises Heart Rate Service
             if (device && (device.name?.includes('Heart') || device.serviceUUIDs?.includes(HEART_RATE_SERVICE_UUID))) {
-                this.manager.stopDeviceScan();
+                this.getManager().stopDeviceScan();
                 this.connectToDevice(device, onHeartRateUpdate);
             }
         });
