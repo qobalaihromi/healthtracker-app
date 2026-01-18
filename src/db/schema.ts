@@ -17,6 +17,11 @@ export const dailyLogs = sqliteTable('daily_logs', {
     // Sleep
     sleep_hours: real('sleep_hours').default(0),
 
+    // Body Metrics
+    weight_kg: real('weight_kg'),
+    height_cm: real('height_cm'),
+    waist_cm: real('waist_cm'),
+
     updated_at: integer('updated_at', { mode: 'timestamp' }).$onUpdate(() => new Date()),
 });
 

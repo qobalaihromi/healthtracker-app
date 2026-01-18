@@ -49,11 +49,17 @@ A comprehensive health tracking application combining nutrition, fitness, sleep 
 ### Phase 3: Maps & Activity 🏃
 -   [x] **Map**: Setup `react-native-maps` with OSM tiles.
 -   [x] **Tracking**: Implement `expo-location` background service.
+-   [ ] **Stats**: Calculate Pace, Duration, and Speed during activity.
 -   [ ] **Storage**: Save route coordinates (GeoJSON) to SQLite.
 
-### Phase 4: Wearables & Sync ⌚
--   [x] **BLE**: Scan & Connect to standard Heart Rate monitors.
--   [ ] **Backup**: Export SQLite DB to JSON/File and upload to Google Drive.
+### Phase 4: Body Metrics ⚖️
+-   [x] **Schema**: Add Weight, Height, Waist to database.
+-   [x] **UI**: Input screen for Body Metrics.
+-   [x] **Dashboard**: Display BMI and Weight on Home.
+
+### Phase 5: Wearables (Pending) ⌚
+-   [ ] **BLE**: Scan & Connect to standard Heart Rate monitors (Paused for Expo Go).
+-   [ ] **Sync**: Real-time heart rate graph.
 
 ---
 
