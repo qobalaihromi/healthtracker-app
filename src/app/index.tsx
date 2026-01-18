@@ -121,6 +121,10 @@ export default function HomeScreen() {
                     Start Run / Walk
                 </Button>
 
+                <Button theme="alt2" onPress={() => router.push('/activities/')}>
+                    📜 View Activity History
+                </Button>
+
                 {/* BLE BUTTON HIDDEN FOR EXPO GO */}
                 {/* 
                 <Button f={1} theme="purple" onPress={() => alert('Scanning for devices...')}>
