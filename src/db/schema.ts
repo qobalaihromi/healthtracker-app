@@ -41,3 +41,15 @@ export const fastingSessions = sqliteTable('fasting_sessions', {
     target_hours: integer('target_hours').default(16), // e.g., 16 hours
     status: text('status').default('active'), // active, completed, broken
 });
+
+export const activities = sqliteTable('activities', {
+    id: integer('id').primaryKey({ autoIncrement: true }),
+    type: text('type').default('run'), // run, walk
+    start_time: text('start_time').notNull(),
+    end_time: text('end_time').notNull(),
+    duration_seconds: integer('duration_seconds').default(0),
+    distance_meters: real('distance_meters').default(0),
+    avg_pace: real('avg_pace').default(0), // min/km
+    path_coordinates: text('path_coordinates'), // JSON string
+    created_at: integer('created_at', { mode: 'timestamp' }).default(new Date()),
+});
